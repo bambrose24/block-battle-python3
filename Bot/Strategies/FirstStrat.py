@@ -80,15 +80,14 @@ class FirstStrat(AbstractStrategy):
         random.shuffle(res)
         return res[0][1]
 
-    def error(self, proj,f):
+    def error(self, proj, f):
         e_general_holes = 0
         e_bad_holes = 0
         f = f.field
-        orig_err = self.col_err(f)
 
 
         # general_holes, vertical depth
-        errs = [self.e1(proj),self.col_err(proj)]
+        errs = [self.e1(proj,f),self.col_err(proj)]
 
         if self.w1 == 0.0 and self.w2 == 0.0:
             return tuple(errs)
